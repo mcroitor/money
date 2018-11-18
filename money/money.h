@@ -7,8 +7,7 @@
 namespace mc {
 
     class money {
-        std::uint64_t _integral;
-        std::uint64_t _part;
+        std::uint64_t _amount;
         currency_t _currency;
     public:
         money(currency_t);
@@ -18,6 +17,7 @@ namespace mc {
 
         const uint64_t integral() const;
         const uint64_t part() const;
+        const uint64_t amount() const;
         const currency_t currency() const;
 
         const money& operator=(const money&);

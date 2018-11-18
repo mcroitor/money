@@ -4,27 +4,29 @@
 namespace mc {
 
     money::money(currency_t c) :
-    _currency(c), _integral(0), _part(0) {
+    _currency(c), _amount(0) {
 
     }
 
     money::money(const money& m) :
-    _currency(m.currency()), _integral(m.integral()), _part(m.part()) {
+    _currency(m.currency()), _amount(m.amount()) {
 
     }
 
     money::money(currency_t c, double sum) : _currency(c) {
-        _integral = (uint64_t) sum;
-        _part = (uint64_t) (100 * (sum - _integral));
-
+        _amount = (uint64_t) (sum * 100);
     }
 
     const uint64_t money::integral() const {
-        return _integral;
+        return _amount / 100;
     }
 
     const uint64_t money::part() const {
-        return _part;
+        return _amount % 100;
+    }
+
+    const uint64_t money::amount() const {
+        return _amount;
     }
 
     const currency_t money::currency() const {
@@ -33,31 +35,28 @@ namespace mc {
 
     const money& money::operator=(const money& m) {
         this->_currency = m.currency();
-        this->_integral = m.integral();
-        this->_part = m.part();
+        this->_amount = m.amount();
         return *this;
     }
 
     bool money::equal(const money& m) const {
         return this->currency() == m.currency() &&
-                this->integral() == m.integral() &&
-                this->part() == m.part();
+                this->amount() == m.amount();
     }
 
     void money::operator+=(const money& m) {
         if (currency() != m.currency()) {
             throw std::logic_error("incompatible currencies!");
         }
-        _part = (_part + m.part()) % 100;
-        _integral = _integral + m.integral() + (_part + m.part()) / 100;
+        _amount += m.amount();
     }
 
     void money::operator+=(const double& m) {
         money tmp(this->currency(), m);
         *this += tmp;
     }
-    
-    std::string money::to_string() const{
+
+    std::string money::to_string() const {
         std::ostringstream strout;
         strout << this->integral() << "," << this->part() << " " << mc::to_string(this->currency());
         return strout.str();
