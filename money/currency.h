@@ -7,6 +7,9 @@
 namespace mc {
     namespace currency {
 
+        /**
+         * all currencies
+         */
         enum class currency_t {
             AED,
             AFN,
@@ -176,6 +179,9 @@ namespace mc {
         // Code Country Name
         extern const std::map<currency_t, std::string> currency_name;
 
+        /**
+         * currency to string
+         */
         std::string to_string(currency_t);
     }
 }
