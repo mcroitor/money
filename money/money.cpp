@@ -104,6 +104,18 @@ namespace mc {
             return tmp;
         }
 
+        money operator+(const money& m, const double& p) {
+            money tmp(m);
+            tmp += p;
+            return tmp;
+        }
+
+        money operator+(const double& p, const money& m) {
+            money tmp(m);
+            tmp += p;
+            return tmp;
+        }
+
         money operator-(const money& m1, const money& m2) {
             money tmp(m1);
             tmp -= m2;

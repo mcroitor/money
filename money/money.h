@@ -20,13 +20,13 @@ namespace mc {
             virtual ~money() = default;
 
             /**
-             * integral part of type. For USD --> dollars, ROL --> lei,
+             * integral part of type. For USD --> dollar, ROL --> lei,
              * RUR --> ruble.
              * @return 
              */
             const uint64_t integral() const;
             /**
-             * hundredth part of type. For USD --> cents, ROL --> ban,
+             * hundredth part of type. For USD --> cent, ROL --> ban,
              * RUR --> kopek.
              * @return 
              */
@@ -70,6 +70,8 @@ namespace mc {
         bool operator==(const money&, const money&);
 
         money operator+(const money&, const money&);
+        money operator+(const double&, const money&);
+        money operator+(const money&, const double&);
         money operator-(const money&, const money&);
         money operator*(const money&, const double&);
         money operator*(const double&, const money&);
