@@ -8,8 +8,8 @@ using namespace mc::currency;
 
 TEST_CASE("currency euro", "[currency]") {
     currency_t currency = currency_t::EUR;
-    std::cout << "euro: " << currency_name.at(currency) << std::endl;
-    REQUIRE(currency_name.at(currency) == "Euro Member Countries");
+    std::cout << "euro: " << currency_name_.at(currency) << std::endl;
+    REQUIRE(currency_name_.at(currency) == "Euro Member Countries");
 }
 
 TEST_CASE("money create", "[money]") {

@@ -177,12 +177,31 @@ namespace mc {
 
         // ISO 4217 Currency Codes
         // Code Country Name
-        extern const std::map<currency_t, std::string> currency_name;
+        // More effective will be vector structure
+        extern const std::map<currency_t, std::string> currency_name_;
+
+        // ISO 4217 Currency Codes
+        // Code Short Name
+        // More effective will be vector structure
+        extern const std::map<currency_t, std::string> currency_to_shortname_;
+        extern const std::map<std::string, currency_t> shortname_to_currency_;
 
         /**
          * currency to string
          */
         std::string to_string(currency_t);
+        std::string to_shortname(currency_t);
+        std::string to_currency(std::string);
+
+        /**
+         * exceptions
+         */
+        struct unknown_currency : public std::exception {
+            virtual const char* what() const;
+        };
+        struct unknown_currency_shortname : public std::exception {
+            virtual const char* what() const;
+        };
     }
 }
 #endif /* CURRENCY_H */
