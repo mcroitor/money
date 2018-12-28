@@ -332,7 +332,7 @@ namespace mc {
             {currency_t::ZWD, "ZWD"}
         };
 
-        const std::map<currency_t, std::string> shortname_to_currency_ = {
+        const std::map<std::string, currency_t> shortname_to_currency_ = {
             {"AED", currency_t::AED},
             {"AFN", currency_t::AFN},
             {"ALL", currency_t::ALL},
@@ -505,16 +505,16 @@ namespace mc {
             return mc::currency::currency_to_shortname_.at(c);
         }
 
-        std::string to_currency(std::string sn) {
+        currency_t to_currency(std::string sn) {
             return mc::currency::shortname_to_currency_.at(sn);
         }
         
         // exceptions
-        const char* unknown_currency::what() const{
+        const char* unknown_currency::what() const noexcept{
             return "unknown currency";
         }
         
-        const char* unknown_currency_shortname::what() const{
+        const char* unknown_currency_shortname::what() const noexcept{
             return "unknown currency short name";
         }
     }

@@ -191,16 +191,16 @@ namespace mc {
          */
         std::string to_string(currency_t);
         std::string to_shortname(currency_t);
-        std::string to_currency(std::string);
+        currency_t to_currency(std::string);
 
         /**
          * exceptions
          */
         struct unknown_currency : public std::exception {
-            virtual const char* what() const;
+            virtual const char* what() const noexcept;
         };
         struct unknown_currency_shortname : public std::exception {
-            virtual const char* what() const;
+            virtual const char* what() const noexcept;
         };
     }
 }
