@@ -498,15 +498,24 @@ namespace mc {
         };
 
         std::string to_string(currency_t c) {
-            return mc::currency::currency_name_.at(c);
+            if(currency_name_.find(c) == currency_name_.end()){
+                throw unknown_currency();
+            }
+            return currency_name_.at(c);
         }
 
         std::string to_shortname(currency_t c) {
-            return mc::currency::currency_to_shortname_.at(c);
+            if(currency_name_.find(c) == currency_name_.end()){
+                throw unknown_currency();
+            }
+            return currency_to_shortname_.at(c);
         }
 
         currency_t to_currency(std::string sn) {
-            return mc::currency::shortname_to_currency_.at(sn);
+            if(shortname_to_currency_.find(sn) == shortname_to_currency_.end()){
+                throw unknown_currency_shortname();
+            }
+            return shortname_to_currency_.at(sn);
         }
         
         // exceptions
