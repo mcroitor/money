@@ -6,6 +6,6 @@ namespace.
 using currency_t = mc::currency::currency_t;
 using money = mc::currency::money;
 
-money cash(currency_t::USD, 200);
+money cash = 200.0_USD;
 std::cout << cash.convert( currency_t::GBP, 1.14).to_string();
 ```
