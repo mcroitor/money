@@ -50,3 +50,10 @@ TEST_CASE("money arithmetic", "[money]") {
     cash = 2 * cash + 5;
     REQUIRE(cash.amount() == 246630);
 }
+
+TEST_CASE("money literals", "[money]") {
+    money cash = 121.0_PHP;
+    REQUIRE(cash.integral() == 121);
+    REQUIRE(cash.part() == 0);
+    REQUIRE(cash.currency() == currency_t::PHP);
+}

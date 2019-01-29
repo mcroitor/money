@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/currency.o \
+	${OBJECTDIR}/initializers.o \
 	${OBJECTDIR}/money.o
 
 # Test Directory
@@ -80,6 +81,11 @@ ${OBJECTDIR}/currency.o: currency.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/currency.o currency.cpp
 
+${OBJECTDIR}/initializers.o: initializers.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/initializers.o initializers.cpp
+
 ${OBJECTDIR}/money.o: money.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -114,6 +120,19 @@ ${OBJECTDIR}/currency_nomain.o: ${OBJECTDIR}/currency.o currency.cpp
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/currency_nomain.o currency.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/currency.o ${OBJECTDIR}/currency_nomain.o;\
+	fi
+
+${OBJECTDIR}/initializers_nomain.o: ${OBJECTDIR}/initializers.o initializers.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/initializers.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/initializers_nomain.o initializers.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/initializers.o ${OBJECTDIR}/initializers_nomain.o;\
 	fi
 
 ${OBJECTDIR}/money_nomain.o: ${OBJECTDIR}/money.o money.cpp 

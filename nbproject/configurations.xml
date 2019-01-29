@@ -15,6 +15,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>currency.cpp</itemPath>
+      <itemPath>initializers.cpp</itemPath>
       <itemPath>money.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -67,6 +68,8 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </folder>
+      <item path="initializers.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="money.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="money.h" ex="false" tool="3" flavor2="0">
@@ -117,6 +120,8 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </folder>
+      <item path="initializers.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="money.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="money.h" ex="false" tool="3" flavor2="0">
