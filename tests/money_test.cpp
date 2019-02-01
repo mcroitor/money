@@ -6,13 +6,12 @@
 
 using mc::currency;
 using mc::money;
-using mc::currency_name_;
 using mc::operator "" _PHP;
 
 TEST_CASE("currency euro", "[currency]") {
     currency currency = currency::EUR;
-    std::cout << "euro: " << currency_name_.at(currency) << std::endl;
-    REQUIRE(currency_name_.at(currency) == "Euro Member Countries");
+    std::cout << "euro: " << mc::to_string(currency) << std::endl;
+    REQUIRE(mc::to_string(currency) == "Euro Member Countries");
 }
 
 TEST_CASE("money create", "[money]") {

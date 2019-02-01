@@ -10,3 +10,4 @@ using mc::_GBP;
 money cash = 200.0_USD;
 std::cout << cash.convert( currency::GBP, 1.14).to_string();
 ```
+__TODO:__ implement precision and round rules

@@ -3,7 +3,7 @@
 
 namespace mc {
 
-    money::money(currency c) :
+    money::money(mc::currency c) :
     _currency(c), _amount(0) {
 
     }
@@ -13,7 +13,7 @@ namespace mc {
 
     }
 
-    money::money(currency c, double sum) : _currency(c) {
+    money::money(mc::currency c, double sum) : _currency(c) {
         _amount = (uint64_t) (sum * 100);
     }
 
@@ -29,7 +29,7 @@ namespace mc {
         return _amount;
     }
 
-    const currency money::currency() const {
+    const mc::currency money::currency() const {
         return _currency;
     }
 
@@ -48,7 +48,7 @@ namespace mc {
                 this->amount() == m.amount();
     }
 
-    money money::convert(currency to, double rate) const {
+    money money::convert(mc::currency to, double rate) const {
         return money(to, this->amount() * rate / 100.);
     }
 

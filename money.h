@@ -11,11 +11,11 @@ namespace mc {
      */
     class money {
         std::uint64_t _amount;
-        currency _currency;
+        mc::currency _currency;
     public:
-        money(currency);
+        money(mc::currency);
         money(const money&);
-        money(currency, double);
+        money(mc::currency, double);
         virtual ~money() = default;
 
         /**
@@ -39,7 +39,7 @@ namespace mc {
          * currency type
          * @return 
          */
-        const currency currency() const;
+        const mc::currency currency() const;
         /**
          * textual representation of currency type.
          * @return 
@@ -55,7 +55,7 @@ namespace mc {
          * @param specify rate of currencies.
          * @return new money object with _to_ currency
          */
-        money convert(currency /* to */, double /* rate */) const;
+        money convert(mc::currency /* to */, double /* rate */) const;
 
         void operator+=(const money&);
         void operator+=(const double&);

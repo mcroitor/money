@@ -173,18 +173,7 @@ namespace mc {
         ZMW,
         ZWD
     };
-
-    // ISO 4217 Currency Codes
-    // Code Country Name
-    // More effective will be vector structure
-    extern const std::map<currency, std::string> currency_name_;
-
-    // ISO 4217 Currency Codes
-    // Code Short Name
-    // More effective will be vector structure
-    extern const std::map<currency, std::string> currency_to_shortname_;
-    extern const std::map<std::string, currency> shortname_to_currency_;
-
+    
     /**
      * currency to string
      */
