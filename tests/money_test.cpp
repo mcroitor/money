@@ -4,26 +4,29 @@
 #include "currency.h"
 #include "money.h"
 
-using namespace mc::currency;
+using mc::currency;
+using mc::money;
+using mc::currency_name_;
+using mc::operator "" _PHP;
 
 TEST_CASE("currency euro", "[currency]") {
-    currency_t currency = currency_t::EUR;
+    currency currency = currency::EUR;
     std::cout << "euro: " << currency_name_.at(currency) << std::endl;
     REQUIRE(currency_name_.at(currency) == "Euro Member Countries");
 }
 
 TEST_CASE("money create", "[money]") {
-    money cash(currency_t::BBD, 200.123);
-    REQUIRE(cash.currency() == currency_t::BBD);
+    money cash(currency::BBD, 200.123);
+    REQUIRE(cash.currency() == currency::BBD);
     REQUIRE(cash.integral() == 200);
     REQUIRE(cash.part() == 12);
 }
 
 TEST_CASE("money convert", "[money]") {
-    money cash(currency_t::USD, 200);
-    money lei = cash.convert(currency_t::MDL, 17.1539);
-    REQUIRE(cash.currency() == currency_t::USD);
-    REQUIRE(lei.currency() == currency_t::MDL);
+    money cash(currency::USD, 200);
+    money lei = cash.convert(currency::MDL, 17.1539);
+    REQUIRE(cash.currency() == currency::USD);
+    REQUIRE(lei.currency() == currency::MDL);
     REQUIRE(cash.integral() == 200);
     REQUIRE(cash.part() == 0);
     REQUIRE(lei.integral() == 3430);
@@ -32,8 +35,8 @@ TEST_CASE("money convert", "[money]") {
 }
 
 TEST_CASE("money add", "[money]") {
-    money salary(currency_t::NZD, 200);
-    REQUIRE(salary.currency() == currency_t::NZD);
+    money salary(currency::NZD, 200);
+    REQUIRE(salary.currency() == currency::NZD);
     std::cout << "initial = " << salary.to_string() << std::endl;
     salary += 12.345;
     std::cout << "changed = " << salary.to_string() << std::endl;
@@ -46,7 +49,7 @@ TEST_CASE("money add", "[money]") {
 }
 
 TEST_CASE("money arithmetic", "[money]") {
-    money cash(currency_t::UAH, 1230.65);
+    money cash(currency::UAH, 1230.65);
     cash = 2 * cash + 5;
     REQUIRE(cash.amount() == 246630);
 }
@@ -55,5 +58,5 @@ TEST_CASE("money literals", "[money]") {
     money cash = 121.0_PHP;
     REQUIRE(cash.integral() == 121);
     REQUIRE(cash.part() == 0);
-    REQUIRE(cash.currency() == currency_t::PHP);
+    REQUIRE(cash.currency() == currency::PHP);
 }
