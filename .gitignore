@@ -1,2 +1,11 @@
 build/
 dist/
+
+# Ignore build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib

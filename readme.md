@@ -31,4 +31,4 @@ std::cout << cash.convert( currency::GBP, 1.14).to_string();
 
 - [ ] implement precision and round rules
 - [x] Create documentation with Doxygen.
-- [ ] Add unit tests with Catch2.
+- [x] Add unit tests with Catch2.

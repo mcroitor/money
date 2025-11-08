@@ -103,7 +103,7 @@ namespace mc {
          * @brief Gets the textual name of the currency.
          * 
          * Returns a human-readable string representation of the currency type
-         * (e.g., "USD", "EUR", "RUB").
+         * (e.g., "United States Dollar", "Russia Ruble").
          * 
          * @return The currency name as a string
          */

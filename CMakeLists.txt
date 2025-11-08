@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 project(money VERSION 1.0.0)
 
 # set C++ standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # include directories
@@ -28,10 +28,11 @@ FetchContent_MakeAvailable(catch2)
 
 add_executable(money_tests
     tests/money_tests.cpp
+    tests/currency_tests.cpp
 )
 
 target_link_libraries(money_tests PRIVATE Catch2::Catch2WithMain money)
-target_compile_features(money_tests PRIVATE cxx_std_11)
+target_compile_features(money_tests PRIVATE cxx_std_17)
 
 include(CTest)
 add_test(NAME money_tests COMMAND money_tests)
