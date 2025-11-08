@@ -29,6 +29,6 @@ std::cout << cash.convert( currency::GBP, 1.14).to_string();
 
 ## TODO
 
-- [ ] implement precision and round rules.
+- [ ] implement precision and round rules
 - [x] Create documentation with Doxygen.
 - [ ] Add unit tests with Catch2.
