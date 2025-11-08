@@ -764,37 +764,37 @@ namespace mc {
      */
     money operator "" _KMF(long double amount); 
     /**
-     * @brief North Korean Won literal
+     * @brief User-defined literal for North Korean Won.
      * @param amount The monetary amount
      * @return money object with KPW currency
      */
     money operator "" _KPW(long double amount);
     /**
-     * @brief South Korean Won literal
+     * @brief User-defined literal for South Korean Won.
      * @param amount The monetary amount
      * @return money object with KRW currency
      */
     money operator "" _KRW(long double amount);
     /**
-     * @brief Kuwaiti Dinar literal
+     * @brief User-defined literal for Kuwaiti Dinar.
      * @param amount The monetary amount
      * @return money object with KWD currency
      */
     money operator "" _KWD(long double amount);
     /**
-     * @brief Cayman Islands Dollar literal
+     * @brief User-defined literal for Cayman Islands Dollar.
      * @param amount The monetary amount
      * @return money object with KYD currency
      */
     money operator "" _KYD(long double amount);
     /**
-     * @brief Kazakhstani Tenge literal
+     * @brief User-defined literal for Kazakhstani Tenge.
      * @param amount The monetary amount
      * @return money object with KZT currency
      */
     money operator "" _KZT(long double amount);
     /**
-     * @brief Laotian Kip literal
+     * @brief User-defined literal for Laotian Kip.
      * @param amount The monetary amount
      * @return money object with LAK currency
      */
