@@ -659,6 +659,8 @@ namespace mc {
      * @brief User-defined literal for Croatian Kuna.
      * @param amount The monetary amount
      * @return money object with HRK currency
+     * @note Croatian Kuna (HRK) was replaced by the Euro (EUR) on January 1, 2023.
+     *       This currency is no longer in active use.
      */
     money operator "" _HRK(long double amount);
     /**
