@@ -739,7 +739,6 @@ namespace mc {
      * @return money object with JPY currency
      */
     money operator "" _JPY(long double amount);
-    // Currency literals for K-P currencies
     /**
      * @brief User-defined literal for Kenyan Shilling.
      * @param amount The monetary amount
