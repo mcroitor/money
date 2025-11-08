@@ -7,7 +7,7 @@ The C++ library that proposes currency / money types. Types are defined in _mc_ 
 ## Installation
 
 This is a _NetBeans_ project, you can just use this nice IDE for building.
-Was simple _cmake_ configuration file created. If you has cmake, do next:
+Was simple _cmake_ configuration file created. If you have cmake, do next:
 
 ```bash
 mkdir dist
