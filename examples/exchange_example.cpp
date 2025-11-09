@@ -4,9 +4,9 @@
 #include <vector>
 #include <algorithm>
 
-using mc::currency::money;
-using mc::currency::to_currency;
-using currency = mc::currency::currency_t;
+using mc::money;
+using mc::to_currency;
+using currency = mc::currency;
 
 struct exchange_data {
     currency from;
@@ -49,8 +49,8 @@ int main(int argc, char** argv) {
     std::cin >> shortname_from >> shortname_to >> total;
 
     exchange_data test = {
-        mc::currency::to_currency(shortname_from),
-        mc::currency::to_currency(shortname_to),
+        mc::to_currency(shortname_from),
+        mc::to_currency(shortname_to),
         0.
     };
 
@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
     std::cout << "result = " 
             << money(data.from, total).convert(data.to, data.rate).amount() / 100. 
             << " " 
-            << mc::currency::to_shortname(data.to);
+            << mc::to_shortname(data.to);
 
     return 0;
 }
