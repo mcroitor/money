@@ -47,8 +47,8 @@ ctest
 ### Basic Usage
 
 ```cpp
-#include "money.h"
-#include "currency.h"
+#include "money.hpp"
+#include "currency.hpp"
 
 using mc::currency;
 using mc::money;
