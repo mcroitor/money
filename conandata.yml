@@ -1,0 +1,5 @@
+sources:
+  "1.0.0":
+    url: "https://github.com/mcroitor/money/archive/refs/tags/v1.0.0.tar.gz"
+    sha256: "TBD"  # Будет заполнено при создании релиза
+    strip_root: 1
