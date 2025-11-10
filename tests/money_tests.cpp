@@ -1,8 +1,8 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_all.hpp>
 
-#include "currency.h"
-#include "money.h"
+#include "currency.hpp"
+#include "money.hpp"
 
 using mc::currency;
 using mc::money;
@@ -276,6 +276,7 @@ TEST_CASE("Money utility methods", "[money][utility]") {
     SECTION("Currency name") {
         money m(currency::USD, 100.00);
         REQUIRE(m.currency_name() == "United States Dollar");
+        REQUIRE(m.currency_shortname() == "USD");
     }
     
     SECTION("String representation") {
@@ -284,7 +285,7 @@ TEST_CASE("Money utility methods", "[money][utility]") {
         REQUIRE(!str.empty());
         // The exact format depends on implementation
         REQUIRE(str.find("123") != std::string::npos);
-        REQUIRE(str.find("USD") == std::string::npos);
+        REQUIRE(str.find("USD") != std::string::npos);
     }
 }
 

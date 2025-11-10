@@ -1,4 +1,7 @@
-#include "currency.h"
+#include "currency.hpp"
+
+#include <algorithm>
+#include <cctype>
 
 namespace mc {
 //    namespace impl {
@@ -520,7 +523,7 @@ namespace mc {
 
     std::string to_shortname(currency c) {
         using namespace impl;
-        if (currency_name_.find(c) == currency_name_.end()) {
+        if (currency_to_shortname_.find(c) == currency_to_shortname_.end()) {
             throw unknown_currency();
         }
         return currency_to_shortname_.at(c);
@@ -528,10 +531,13 @@ namespace mc {
 
     currency to_currency(std::string sn) {
         using namespace impl;
-        if (shortname_to_currency_.find(sn) == shortname_to_currency_.end()) {
+        std::string upper_sn;
+        upper_sn.resize(sn.size());
+        std::transform(sn.begin(), sn.end(), upper_sn.begin(), ::toupper);
+        if (shortname_to_currency_.find(upper_sn) == shortname_to_currency_.end()) {
             throw unknown_currency_shortname();
         }
-        return shortname_to_currency_.at(sn);
+        return shortname_to_currency_.at(upper_sn);
     }
 
     // exceptions

@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_all.hpp>
 
-#include "currency.h"
+#include "currency.hpp"
 
 using mc::currency;
 
@@ -123,8 +123,8 @@ TEST_CASE("to_currency() converts string to currency enum", "[currency][to_curre
     SECTION("Case sensitivity tests") {
         // Test if function handles different cases
         REQUIRE_NOTHROW(mc::to_currency("USD"));
-        // Function is case-sensitive by design; lowercase input should throw
-        REQUIRE_THROWS_AS(mc::to_currency("usd"), mc::unknown_currency_shortname);
+        // Lowercase are acceptable too
+        REQUIRE_NOTHROW(mc::to_currency("usd"));
     }
     
     SECTION("Boundary cases") {
