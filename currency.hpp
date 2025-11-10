@@ -13,8 +13,8 @@
  * @date 2025
  */
 
-#ifndef CURRENCY_H
-#define CURRENCY_H
+#ifndef CURRENCY_HPP
+#define CURRENCY_HPP
 
 #include <string>
 #include <map>
@@ -301,5 +301,5 @@ namespace mc {
         virtual const char* what() const noexcept;
     };
 }
-#endif /* CURRENCY_H */
+#endif /* CURRENCY_HPP */
 

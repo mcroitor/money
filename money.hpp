@@ -18,11 +18,11 @@
  * @date 2025
  */
 
-#ifndef MONEY_H
-#define MONEY_H
+#ifndef MONEY_HPP
+#define MONEY_HPP
 
 #include <cstdint>
-#include "currency.h"
+#include "currency.hpp"
 
 namespace mc {
 
@@ -108,6 +108,16 @@ namespace mc {
          * @return The currency name as a string
          */
         const std::string currency_name() const;
+
+        /**
+         * @brief Gets the textual name of the currency.
+         * 
+         * Returns a human-readable string representation of the currency type
+         * (e.g., "USD", "RUB").
+         * 
+         * @return The currency name as a string
+         */
+        const std::string currency_shortname() const;
 
         /**
          * @brief Assignment operator.
@@ -1289,5 +1299,5 @@ namespace mc {
     money operator "" _ZWD(long double amount);
 }
 
-#endif /* MONEY_H */
+#endif /* MONEY_HPP */
 

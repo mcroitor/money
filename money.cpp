@@ -1,5 +1,5 @@
 #include <sstream>
-#include "money.h"
+#include "money.hpp"
 
 namespace mc {
 
@@ -37,6 +37,10 @@ namespace mc {
         return mc::to_string(this->_currency);
     }
 
+    const std::string money::currency_shortname() const {
+        return mc::to_shortname(this->_currency);
+    }
+
     const money& money::operator=(const money& m) {
         this->_currency = m.currency();
         this->_amount = m.amount();
@@ -69,7 +73,7 @@ namespace mc {
             throw std::logic_error("incompatible currencies!");
         }
         if (_amount < m.amount()) {
-            throw std::logic_error("incompatible currencies!");
+            throw std::logic_error("insufficient funds!");
         }
         _amount -= m.amount();
     }
@@ -80,16 +84,16 @@ namespace mc {
     }
 
     void money::operator*=(const double& p) {
-        _amount = _amount * p;
+        _amount = (uint64_t)(_amount * p);
     }
 
     void money::operator/=(const double& p) {
-        _amount = (_amount / p);
+        _amount = (uint64_t)(_amount / p);
     }
 
     std::string money::to_string() const {
         std::ostringstream strout;
-        strout << this->integral() << "," << this->part() << " " << mc::to_string(this->currency());
+        strout << this->integral() << "," << this->part() << " " << mc::to_shortname(this->currency());
         return strout.str();
     }
 
