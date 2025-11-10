@@ -1,6 +1,6 @@
 #include <iostream>
-#include "money.h"
-#include "currency.h"
+#include "money.hpp"
+#include "currency.hpp"
 
 int main() {
     using mc::currency;
