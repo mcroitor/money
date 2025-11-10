@@ -17,11 +17,23 @@ A comprehensive C++ library for handling monetary values with currency support. 
 
 ## Installation
 
+### Via Conan (Recommended)
+
+```bash
+# Add to your conanfile.txt
+[requires]
+money/1.0.0
+
+# Or via command line
+conan install --requires=money/1.0.0@
+```
+
+### From Source
+
 ### Prerequisites
 
 - C++17 compatible compiler
-- CMake 3.10 or higher
-- Git (for fetching Catch2 dependency)
+- CMake 3.15 or higher
 
 ### Building
 

@@ -9,3 +9,13 @@ dist/
 *.so
 *.a
 *.lib
+
+# Conan
+conan_data/
+conaninfo.txt
+conanbuildinfo.*
+conan.lock
+graph_info.json
+
+# CMake
+CMakeUserPresets.json
