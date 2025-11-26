@@ -38,7 +38,7 @@ install(TARGETS money
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
-install(FILES money.h currency.h
+install(FILES money.hpp currency.hpp
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
