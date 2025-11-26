@@ -43,7 +43,7 @@ class MoneyConan(ConanFile):
     
     def requirements(self):
         if self.options.with_tests:
-            self.requires("catch2/3.4.0")
+            self.requires("catch2/3.11.0")
     
     def generate(self):
         deps = CMakeDeps(self)
